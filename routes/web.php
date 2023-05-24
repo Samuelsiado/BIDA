@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormValidtionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    echo "API";
 });
+
+Route::get('/menu', function () {
+    return view('menu');
+});
+
+
+
+
+
+Route::get('/form', [FormValidtionController::class, 'createUserForm']);
+Route::post('/form', [FormValidtionController::class, 'UserForm'])->name('validate.form');
+
