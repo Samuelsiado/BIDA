@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app') --}}
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -43,7 +43,7 @@
                             <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Usuario') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">

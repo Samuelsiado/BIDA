@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use \Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class LoginController extends Controller
 {
@@ -36,5 +37,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function username()
+    {
+        #obtener valor del user
+        $loginValue = request('username');
+        #validar si es email o texto
+        $this->$username=filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' :'username';
+        #unir los valores
+        request()->merge([$this->username=> $loginValue]);
+        #retornar el inicio de sesión
+        return property_exists($this, 'username') ? $this->username : 'email';
     }
 }
