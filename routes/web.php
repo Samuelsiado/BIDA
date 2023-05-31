@@ -15,7 +15,7 @@ use App\Http\Controllers\FormValidtionController;
 */
 
 Route::get('/', function () {
-    echo "API";
+    return view('welcome');
 });
 
 Route::get('/menu', function () {
@@ -29,3 +29,7 @@ Route::get('/menu', function () {
 Route::get('/form', [FormValidtionController::class, 'createUserForm']);
 Route::post('/form', [FormValidtionController::class, 'UserForm'])->name('validate.form');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
