@@ -38,16 +38,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function username()
-    {
-        #obtener valor del user
-        $loginValue = request('username');
-        #validar si es email o texto
-        $this->$username=filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' :'username';
-        #unir los valores
-        request()->merge([$this->username=> $loginValue]);
-        #retornar el inicio de sesión
-        return property_exists($this, 'username') ? $this->username : 'email';
-    }
+    #Funcion para que sea lea usuario y contraseña //No se define $username
+    // public function username()
+    // {
+    //     #obtener valor del user
+    //     $loginValue = request('username');
+    //     #validar si es email o texto
+    //     $this->$username=filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' :'username';
+    //     #unir los valores
+    //     request()->merge([$this->username=> $loginValue]);
+    //     #retornar el inicio de sesión
+    //     return property_exists($this, 'username') ? $this->username : 'email';
+    // }
 }
